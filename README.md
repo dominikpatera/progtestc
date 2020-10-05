@@ -15,3 +15,12 @@
 5. napises nazev skriptu napr "rgb.c"
 
 Tutorial: https://www.dropbox.com/s/slvpswnpgyz1481/2020-10-05%2022-15-05.mkv?dl=0
+
+# FORMÁT
+
+Testovací data musí být v souborech txt s následujícími názvy
+
+- XXXX_in.txt
+- XXXX_out.txt
+
+např. 0000_in.txt a 0000_out.txt nebo slovo_in.txt a slovo_out.txt
