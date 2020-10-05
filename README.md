@@ -1,6 +1,17 @@
 # JAK POUZIVAT TENTO BASH SCRIPT
 
-1. udelat git clone do /usr/bin/local
-2. stahnout vzorova data z progtest a vlozit je do slozky test u umisteni c skriptu
-3. udelat prikaz "bash progtestc"
-4. zadat cestu k C skriptu
+## INSTALACE
+
+1. cd /usr/local/bin
+2. sudo git clone https://github.com/dominikpatera/progtestc.git temp
+3. sudo mv temp/progtestc .
+4. sudo rm -r temp
+
+## POUZITI
+1. ve složce se skriptem v jazyce C vytvoř složku test
+2. do složky vlož vzorová data z progtestu
+3. v terminálu se přesuneme do složky s C skriptem
+4. progtestc spustis pomocí "bash progtestc"
+5. napises nazev skriptu napr "rgb.c"
+
+Tutorial: 
