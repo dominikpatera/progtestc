@@ -17,18 +17,21 @@ for input in $dir/test/*_in.txt; do
     $dir/a.out <$input >$myoutput
     DIFF=$(diff $myoutput $output)
     if [ "$DIFF" != "" ]; then
-        printf "\n///////////////////////////////////////////////////////////////////////////\n\n"
-        printf "\n___________________________________________________________________________\n\n"
-        echo "Rozdil mezi $(basename $myoutput) a $(basename $output)".
         printf "___________________________________________________________________________\n\n"
+        printf $'\e[1;31m'FAIL:$'\e[0m'
+        printf " $(basename $input)\n\n"
         echo "VSTUP:"
         cat $input
-        printf "___________________________________________________________________________\n\n"
+        printf "\n\n"
         echo "OČEKÁVANÝ VÝSTUP:"
         cat $output
-        printf "___________________________________________________________________________\n\n"
+        printf "\n\n"
         echo "REALNÝ VÝSTUP:"
         cat $myoutput
+    else
         printf "___________________________________________________________________________\n\n"
+        printf $'\e[1;32m'OK:$'\e[0m'
+        printf " $(basename $input)\n"
     fi
 done
+printf "___________________________________________________________________________\n\n"
