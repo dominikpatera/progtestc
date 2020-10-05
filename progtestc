@@ -1,0 +1,34 @@
+#/usr/local/bin
+echo "Zadej cestu ke scriptu (.c):"
+read script_path
+CC=g++
+CFLAGS="-Wall -pedantic"
+dir=$(dirname $script_path)
+script=$(basename $script_path)
+
+if ! ${CC} ${CFLAGS} ${script_path} -o $dir/a.out; then
+    exit 1
+fi
+
+for input in $dir/test/*_in.txt; do
+    output=$(dirname $script_path)/test/$(echo $(basename $input) | tr -d _in.txt)_out.txt
+    myoutput=$(dirname $script_path)/test/$(echo $(basename $input) | tr -d _in.txt)_myoutput.txt
+
+    $dir/a.out <$input >$myoutput
+    DIFF=$(diff $myoutput $output)
+    if [ "$DIFF" != "" ]; then
+        printf "\n///////////////////////////////////////////////////////////////////////////\n\n"
+        printf "\n___________________________________________________________________________\n\n"
+        echo "Rozdil mezi $(basename $myoutput) a $(basename $output)".
+        printf "___________________________________________________________________________\n\n"
+        echo "VSTUP:"
+        cat $input
+        printf "___________________________________________________________________________\n\n"
+        echo "OČEKÁVANÝ VÝSTUP:"
+        cat $output
+        printf "___________________________________________________________________________\n\n"
+        echo "REALNÝ VÝSTUP:"
+        cat $myoutput
+        printf "___________________________________________________________________________\n\n"
+    fi
+done
