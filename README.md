@@ -14,4 +14,4 @@
 4. progtestc spustis pomocí "bash progtestc"
 5. napises nazev skriptu napr "rgb.c"
 
-Tutorial: 
+Tutorial: https://drive.google.com/file/d/106vHus0Klui8NMo6vKiIusecEj9HGZp2/view?usp=sharing
